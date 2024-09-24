@@ -1,0 +1,21 @@
+---
+import ArrowDown from "../icons/ArrowDown.astro";
+
+interface Props {
+  target: string;
+  isTop: boolean;
+}
+
+const { target, isTop } = Astro.props;
+---
+
+<a
+  href={target}
+  class:list={{
+    "top-8 left-1/2 -translate-x-1/2 rotate-180": isTop,
+    "bottom-8 left-1/2 -translate-x-1/2": !isTop,
+  }}
+  class="absolute"
+>
+  <ArrowDown />
+</a>

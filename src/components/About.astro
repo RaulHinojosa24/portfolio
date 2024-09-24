@@ -1,0 +1,34 @@
+---
+import SlideTo from "./SlideTo.astro";
+---
+
+<section
+  id="about"
+  class="min-h-screen px-8 py-20 flex flex-col justify-center relative"
+>
+  <SlideTo target="#landing" isTop={true} />
+  <h3 class="text-center text-white mb-8 tracking-widest uppercase">About</h3>
+  <div class="flex flex-col gap-4">
+    <p>
+      Based in the heart of Catalonia, I've been immersed in the world of web
+      programming for years, and I'm currently diving deep into front-end
+      development while not neglecting back-end skills.
+    </p>
+    <p>
+      What drew me to this field is its huge potential; every developer can come
+      up with their own unique way to solve the same problem. <span
+        class="accent"
+      >
+        There's no single right answer—just many.
+      </span>
+    </p>
+    <p>
+      When I'm not writing code, you'll probably find me on the volleyball court
+      or climbing at the climbing wall. I also love getting lost in the woods<span
+        class="accent"
+        >—nothing beats a hike through Catalonia's forests to clear my mind.</span
+      >
+    </p>
+  </div>
+  <SlideTo target="#projects" isTop={false} />
+</section>

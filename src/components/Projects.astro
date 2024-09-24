@@ -1,0 +1,62 @@
+---
+import ExternalLink from "../icons/ExternalLink.astro";
+import SlideTo from "./SlideTo.astro";
+const PROJECTS = [
+  {
+    title: "Movies & Shows",
+    description:
+      "Explore detailed info on movies and TV shows, including cast, trailers, images and recommendations.",
+    link: "https://moviesandshows.vercel.app/",
+    github: "https://github.com/RaulHinojosa24/movies-and-shows",
+    technologies: ["React", "React Router", "TailwindCSS", "TMDB APIs"],
+    image: "/public/moviesandshows.webp",
+  },
+  {
+    title: "Movies & Shows - Backend",
+    description:
+      "Designed to secure the token and provide well-defined API endpoints.",
+    link: "https://movies-and-shows-backend.vercel.app/",
+    github: "https://github.com/RaulHinojosa24/movies-and-shows-backend",
+    technologies: ["NodeJS", "Express", "Axios"],
+    image: "",
+  },
+];
+---
+
+<section
+  id="projects"
+  class="min-h-screen px-8 py-16 flex flex-col justify-center relative"
+>
+  <SlideTo target="#about" isTop={true} />
+  <h3 class="text-center text-white mb-8 tracking-widest uppercase">
+    Projects
+  </h3>
+  <ul class="space-y-4">
+    {
+      PROJECTS.map(
+        ({ title, description, link, github, technologies, image }) => (
+          <li class="space-y-2">
+            <div>
+              <a
+                target="_blank"
+                href={link}
+                class="hover:text-sky-500 text-white transition-colors w-fit inline-block"
+              >
+                <h4 class="flex gap-2 items-center font-semibold  w-fit">
+                  {title}
+                  <ExternalLink />
+                </h4>
+              </a>
+              <p class="leading-snug">{description}</p>
+            </div>
+            <div class="aspect-video w-48 bg-slate-900 rounded-md shadow-md shadow-slate-700 border-2 border-sky-900 overflow-hidden">
+              {image && (
+                <img class="object-cover" src={image} alt="Project image" />
+              )}
+            </div>
+          </li>
+        ),
+      )
+    }
+  </ul>
+</section>
