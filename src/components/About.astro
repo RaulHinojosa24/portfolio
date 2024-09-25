@@ -1,13 +1,8 @@
 ---
-import SlideTo from "./SlideTo.astro";
+import Section from "../ui/Section.astro";
 ---
 
-<section
-  id="about"
-  class="min-h-screen px-8 py-20 flex flex-col justify-center relative"
->
-  <SlideTo target="#landing" isTop={true} />
-  <h3 class="text-center text-white mb-8 tracking-widest uppercase">About</h3>
+<Section title="About" prev="#landing" id="about" next="#projects">
   <div class="flex flex-col gap-4">
     <p>
       Based in the heart of Catalonia, I've been immersed in the world of web
@@ -30,5 +25,4 @@ import SlideTo from "./SlideTo.astro";
       >
     </p>
   </div>
-  <SlideTo target="#projects" isTop={false} />
-</section>
+</Section>

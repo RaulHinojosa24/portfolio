@@ -1,6 +1,11 @@
 ---
+import { Image } from "astro:assets";
+import freewayImage from "../images/freeway.webp";
+import moviesandshowsImage from "../images/moviesandshows.webp";
 import ExternalLink from "../icons/ExternalLink.astro";
-import SlideTo from "./SlideTo.astro";
+import GitHub from "../icons/GitHub.astro";
+import Section from "../ui/Section.astro";
+
 const PROJECTS = [
   {
     title: "Movies & Shows",
@@ -8,55 +13,87 @@ const PROJECTS = [
       "Explore detailed info on movies and TV shows, including cast, trailers, images and recommendations.",
     link: "https://moviesandshows.vercel.app/",
     github: "https://github.com/RaulHinojosa24/movies-and-shows",
-    technologies: ["React", "React Router", "TailwindCSS", "TMDB APIs"],
-    image: "/moviesandshows.webp",
+    technologies: [
+      "React",
+      "React Router",
+      "Context API",
+      "Hooks",
+      "Tailwind CSS",
+      "Fetch API",
+    ],
+    image: moviesandshowsImage,
   },
   {
     title: "Movies & Shows - Backend",
     description:
-      "Designed to secure the token and provide well-defined API endpoints.",
-    link: "https://movies-and-shows-backend.vercel.app/",
+      "Designed to secure the TMDB API token and provide well-defined API endpoints.",
+    link: "",
     github: "https://github.com/RaulHinojosa24/movies-and-shows-backend",
-    technologies: ["NodeJS", "Express", "Axios"],
+    technologies: ["Node.js", "Express", "Axios", "TMDB APIs"],
     image: "",
+  },
+  {
+    title: "FreeWay - Travel planner",
+    description:
+      "Travel planning app, developed by my partners and me as the final project of a bootcamp, covering both front-end and back-end.",
+    link: "",
+    github: "https://github.com/PlanificacionViaje",
+    technologies: ["Vue.js", "Spring Boot", "Axios"],
+    image: freewayImage,
   },
 ];
 ---
 
-<section
-  id="projects"
-  class="min-h-screen px-8 py-16 flex flex-col justify-center relative"
->
-  <SlideTo target="#about" isTop={true} />
-  <h3 class="text-center text-white mb-8 tracking-widest uppercase">
-    Projects
-  </h3>
-  <ul class="space-y-4">
+<Section title="Projects" prev="#about" id="projects">
+  <ul class="flex flex-col gap-12">
     {
       PROJECTS.map(
         ({ title, description, link, github, technologies, image }) => (
-          <li class="space-y-2">
-            <div>
-              <a
-                target="_blank"
-                href={link}
-                class="hover:text-sky-500 text-white transition-colors w-fit inline-block"
-              >
-                <h4 class="flex gap-2 items-center font-semibold  w-fit">
-                  {title}
-                  <ExternalLink />
-                </h4>
-              </a>
+          <li class="flex flex-col gap-4">
+            <div class="space-y-1">
+              {!link && <h4 class="font-semibold text-white">{title}</h4>}
+              {link && (
+                <a target="_blank" href={link}>
+                  <h4 class="flex gap-2 items-center font-semibold w-fit">
+                    {title}
+                    {link && <ExternalLink />}
+                  </h4>
+                </a>
+              )}
               <p class="leading-snug">{description}</p>
-            </div>
-            <div class="aspect-video w-48 bg-slate-900 rounded-md shadow-md shadow-slate-700 border-2 border-sky-900 overflow-hidden">
-              {image && (
-                <img class="object-cover" src={image} alt="Project image" />
+              <ul class="flex gap-2 flex-wrap">
+                {technologies.map((tech) => (
+                  <li class="rounded-full bg-teal-800/50 text-sm text-teal-400 px-3 shadow-sm shadow-teal-800/50">
+                    {tech}
+                  </li>
+                ))}
+              </ul>
+              {github && (
+                <a
+                  href={github}
+                  target="_blank"
+                  class="flex items-center gap-1 border-b-[1px] hover:border-teal-400 transition-all w-fit font-semibold pr-2 hover:pr-4 text-sm"
+                >
+                  <GitHub classes="w-[1em]" /> GitHub repository
+                </a>
               )}
             </div>
+            {image && (
+              // <img
+              //   class="aspect-video w-48 object-cover rounded-md shadow-md shadow-sky-800/50 border-2 border-sky-800/50"
+              //   src={image}
+              //   alt="Screenshot of app"
+              //   loading="lazy"
+              // />
+              <Image
+                src={image as ImageMetadata}
+                alt="App screenshot"
+                class="aspect-video w-48 object-cover rounded-md shadow-md shadow-sky-800/50 border-2 border-sky-800/50"
+              />
+            )}
           </li>
         ),
       )
     }
   </ul>
-</section>
+</Section>

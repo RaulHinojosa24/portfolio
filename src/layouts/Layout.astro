@@ -17,7 +17,7 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body
-		class="bg-gradient-to-b dark:from-slate-900 dark:to-sky-950 dark:text-slate-300"
+		class="bg-gradient-to-b dark:from-slate-900 dark:to-sky-950 dark:text-slate-300 dark:border-300"
 	>
 		<header class="flex flex-col justify-center">
 			<slot name="header" />
@@ -42,5 +42,8 @@ const { title } = Astro.props;
 	}
 	p {
 		@apply text-pretty;
+	}
+	a {
+		@apply hover:text-teal-400 text-white transition-colors w-fit inline-block;
 	}
 </style>

@@ -1,17 +1,13 @@
 ---
+import Section from "../ui/Section.astro";
 import ContactLinks from "./ContactLinks.astro";
-import SlideTo from "./SlideTo.astro";
 ---
 
-<section
-  id="landing"
-  class="min-h-screen px-8 py-16 flex flex-col gap-2 justify-center relative"
->
+<Section id="landing" next="#about">
   <h1 class="text-5xl font-extrabold dark:text-white">Raul Hinojosa</h1>
   <h2 class="text-2xl font-bold dark:text-white">Full-Stack Web Developer</h2>
   <p class="my-2">
     Building creative and functional solutions that solve real-world problems.
   </p>
   <ContactLinks />
-  <SlideTo target="#about" isTop={false} />
-</section>
+</Section>
