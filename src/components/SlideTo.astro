@@ -10,6 +10,7 @@ const { target, isTop } = Astro.props;
 ---
 
 <a
+  aria-label=`Scroll ${isTop ? 'up' : 'down'} to ${target}`
   href={target}
   class:list={{
     "top-8 left-1/2 -translate-x-1/2 rotate-180": isTop,
