@@ -5,6 +5,7 @@ import moviesandshowsImage from "../images/moviesandshows.webp";
 import ExternalLink from "../icons/ExternalLink.astro";
 import GitHub from "../icons/GitHub.astro";
 import Section from "../ui/Section.astro";
+import ArrowDown from "../icons/ArrowDown.astro";
 
 const PROJECTS = [
   {
@@ -45,45 +46,48 @@ const PROJECTS = [
 ---
 
 <Section title="Projects" prev="#about" id="projects">
-  <ul class="flex flex-col gap-12">
+  <ul class="flex flex-col gap-20 mt-10">
     {
       PROJECTS.map(
         ({ title, description, link, github, technologies, image }) => (
-          <li class="flex flex-col gap-4">
+          <li class="flex flex-col gap-4 border-l-[16px] border-accent px-4 -ml-8">
             <div class="space-y-2">
-              {!link && <h4 class="font-semibold">{title}</h4>}
-              {link && (
-                <a target="_blank" href={link}>
-                  <h4 class="flex gap-2 items-center font-semibold w-fit text-inherit">
-                    {title}
-                    {link && <ExternalLink />}
-                  </h4>
-                </a>
-              )}
+              <div class="flex justify-between">
+                {!link && <h4 class="font-bold">{title}</h4>}
+                {link && (
+                  <a class="w-fit" target="_blank" href={link}>
+                    <h4 class="flex gap-2 items-center text-inherit font-bold pb-1">
+                      {title}
+                      {link && <ExternalLink />}
+                    </h4>
+                  </a>
+                )}
+              </div>
               <p class="leading-snug">{description}</p>
               <ul class="flex gap-2 flex-wrap">
                 {technologies.map((tech) => (
-                  <li class="rounded-full bg-accent/10 text-sm text-accent px-3 py-1">
+                  <li class="text-sm px-2 border-[1px] border-accent">
                     {tech}
                   </li>
                 ))}
               </ul>
-              {github && (
-                <a
-                  href={github}
-                  target="_blank"
-                  class="flex items-center gap-1 border-b-[1px] transition-all w-fit font-semibold pr-2 hover:pr-4 text-sm"
-                >
-                  <GitHub classes="w-[1em]" /> GitHub repository
-                </a>
-              )}
             </div>
             {image && (
               <Image
                 src={image as ImageMetadata}
                 alt="App screenshot"
-                class="aspect-video w-48 object-cover rounded-md border-2 dark:border-accent/30 border-slate-800/50"
+                class="aspect-video w-48 object-cover"
               />
+            )}
+            {github && (
+              <a
+                id="github"
+                href={github}
+                target="_blank"
+                class="font-bold text-accent flex items-center"
+              >
+                GitHub repository <ArrowDown classes="rotate-90 mt-1" />
+              </a>
             )}
           </li>
         ),
@@ -91,3 +95,10 @@ const PROJECTS = [
     }
   </ul>
 </Section>
+
+<style>
+  h4,
+  #github {
+    font-family: "Antonio";
+  }
+</style>
