@@ -50,11 +50,11 @@ const PROJECTS = [
       PROJECTS.map(
         ({ title, description, link, github, technologies, image }) => (
           <li class="flex flex-col gap-4">
-            <div class="space-y-1">
-              {!link && <h4 class="font-semibold text-white">{title}</h4>}
+            <div class="space-y-2">
+              {!link && <h4 class="font-semibold">{title}</h4>}
               {link && (
                 <a target="_blank" href={link}>
-                  <h4 class="flex gap-2 items-center font-semibold w-fit">
+                  <h4 class="flex gap-2 items-center font-semibold w-fit text-inherit">
                     {title}
                     {link && <ExternalLink />}
                   </h4>
@@ -63,7 +63,7 @@ const PROJECTS = [
               <p class="leading-snug">{description}</p>
               <ul class="flex gap-2 flex-wrap">
                 {technologies.map((tech) => (
-                  <li class="rounded-full bg-teal-800/50 text-sm text-teal-400 px-3 shadow-sm shadow-teal-800/50">
+                  <li class="rounded-full bg-accent/10 text-sm text-accent px-3 py-1">
                     {tech}
                   </li>
                 ))}
@@ -72,23 +72,17 @@ const PROJECTS = [
                 <a
                   href={github}
                   target="_blank"
-                  class="flex items-center gap-1 border-b-[1px] hover:border-teal-400 transition-all w-fit font-semibold pr-2 hover:pr-4 text-sm"
+                  class="flex items-center gap-1 border-b-[1px] transition-all w-fit font-semibold pr-2 hover:pr-4 text-sm"
                 >
                   <GitHub classes="w-[1em]" /> GitHub repository
                 </a>
               )}
             </div>
             {image && (
-              // <img
-              //   class="aspect-video w-48 object-cover rounded-md shadow-md shadow-sky-800/50 border-2 border-sky-800/50"
-              //   src={image}
-              //   alt="Screenshot of app"
-              //   loading="lazy"
-              // />
               <Image
                 src={image as ImageMetadata}
                 alt="App screenshot"
-                class="aspect-video w-48 object-cover rounded-md shadow-md shadow-sky-800/50 border-2 border-sky-800/50"
+                class="aspect-video w-48 object-cover rounded-md border-2 dark:border-accent/30 border-slate-800/50"
               />
             )}
           </li>

@@ -15,20 +15,22 @@ const { prev, id, next, classes, title } = Astro.props;
       </h3>
     )
   }
-  <slot />
+    <slot />
 </section> -->
 <section
   id={id}
-  class={`min-h-screen px-8 py-20 flex flex-col gap-2 justify-center relative ${classes || ""}`}
+  class={`min-h-screen py-20 flex flex-col gap-2 justify-center relative ${classes || ""}`}
 >
   {prev && <SlideTo target={prev} isTop={true} />}
   {next && <SlideTo target={next} isTop={false} />}
   {
     title && (
-      <h3 class="text-center text-white mb-8 tracking-widest uppercase">
+      <h3 class="text-center mb-4 px-8 tracking-widest uppercase py-4 sticky top-0 backdrop-blur-sm dark:bg-slate-900/75 font-semibold">
         {title}
       </h3>
     )
   }
-  <slot />
+  <div class="px-8">
+    <slot />
+  </div>
 </section>
