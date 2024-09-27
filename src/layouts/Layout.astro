@@ -40,14 +40,11 @@ const { title } = Astro.props;
 	html {
 		font-family: system-ui, sans-serif;
 		color-scheme: dark light;
-		@apply dark:text-slate-200 text-slate-800 dark:bg-stone-800 bg-slate-50 leading-relaxed;
+		@apply dark:text-stone-100 text-slate-800 dark:bg-dark bg-light leading-relaxed;
 		scroll-behavior: smooth;
 	}
-	.accent {
-		@apply font-semibold dark:text-white text-black;
-	}
 	a {
-		@apply hover:text-accent focus:text-accent active:text-accent dark:text-white text-black transition-colors w-fit;
+		@apply hover:text-accent focus:text-accent active:text-accent dark:hover:text-accent dark:focus:text-accent dark:active:text-accent dark:text-white text-black transition-colors w-fit;
 	}
 	h1,
 	h2,

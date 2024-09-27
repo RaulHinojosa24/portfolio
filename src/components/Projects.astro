@@ -58,7 +58,7 @@ const PROJECTS = [
     {
       PROJECTS.map(
         ({ title, description, link, github, technologies, image }) => (
-          <li class="flex flex-col gap-4 border-l-[16px] border-accent px-4 -ml-sm lg:-ml-lg pb-[0.2rem]">
+          <li class="flex flex-col gap-4 border-l-[16px] dark:border-light border-dark px-4 -ml-sm lg:-ml-lg pb-[0.2rem]">
             <div class="space-y-2">
               <h4 class="font-bold pb-1 text-lg tracking-wide">
                 {link ? (
@@ -77,7 +77,7 @@ const PROJECTS = [
               <p class="leading-snug">{description}</p>
               <ul class="flex gap-2 flex-wrap">
                 {technologies.map((tech) => (
-                  <li class="text-sm px-2 border-[1px] border-accent">
+                  <li class="text-sm px-2 border-[1px] dark:border-light border-dark">
                     {tech}
                   </li>
                 ))}
@@ -95,7 +95,7 @@ const PROJECTS = [
                 id="github"
                 href={github}
                 target="_blank"
-                class="font-bold text-accent flex items-center relative after:absolute after:bottom-0 after:left-0 after:transition-all after:w-0 after:border-accent focus:after:w-full focus:after:border-[1px] hover:after:w-full hover:after:border-[1px] active:after:w-full active:after:border-[1px]"
+                class="font-bold text-dark dark:text-light flex items-center relative after:absolute after:bottom-0 after:left-0 after:transition-all after:w-0 after:border-accent focus:after:w-full focus:after:border-[1px] hover:after:w-full hover:after:border-[1px] active:after:w-full active:after:border-[1px]"
               >
                 GitHub repository <ArrowDown classes="rotate-90 mt-1" />
               </a>

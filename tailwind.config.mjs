@@ -4,7 +4,9 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				accent: '#27e' // 4c0cfc, 1d4ed8, 2563eb
+				light: '#DCD7C9', // 4c0cfc, 1d4ed8, 2563eb, 27e
+				dark: "#384341",
+				accent: "#D36336" // D36336, AB4E52
 			},
 			padding: {
 				sm: "2rem",
