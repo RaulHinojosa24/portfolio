@@ -13,17 +13,11 @@ const { title } = Astro.props;
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="preconnect" href="https://fonts.googleapis.com" />
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-		<link
-			href="https://fonts.googleapis.com/css2?family=Anton&family=Antonio:wght@100..700&display=swap"
-			rel="stylesheet"
-		/>
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body>
-		<header class="flex flex-col justify-center">
+	<body class="lg:grid lg:grid-cols-2 lg:items-start">
+		<header class="flex flex-col justify-center lg:sticky lg:top-0">
 			<slot name="header" />
 		</header>
 		<main class="flex flex-col justify-center">
@@ -35,6 +29,14 @@ const { title } = Astro.props;
 	</body>
 </html>
 <style is:global>
+	@font-face {
+		font-family: "Anton";
+		src: url("fonts/Anton.ttf");
+	}
+	@font-face {
+		font-family: "Antonio";
+		src: url("fonts/Antonio.ttf");
+	}
 	html {
 		font-family: system-ui, sans-serif;
 		color-scheme: dark light;
@@ -45,7 +47,7 @@ const { title } = Astro.props;
 		@apply font-semibold dark:text-white text-black;
 	}
 	a {
-		@apply hover:text-accent hover:border-accent dark:text-white text-black border-black dark:border-white transition-colors w-fit inline-block;
+		@apply hover:text-accent focus:text-accent active:text-accent dark:text-white text-black transition-colors w-fit;
 	}
 	h1,
 	h2,
@@ -59,6 +61,7 @@ const { title } = Astro.props;
 	h1,
 	h2,
 	h3 {
-		font-family: "Anton";
+		font-family: "Anton", system-ui, sans-serif;
+		font-weight: 500;
 	}
 </style>

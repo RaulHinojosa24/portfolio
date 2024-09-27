@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import freewayImage from "../images/freeway.webp";
 import moviesandshowsImage from "../images/moviesandshows.webp";
 import ExternalLink from "../icons/ExternalLink.astro";
-import GitHub from "../icons/GitHub.astro";
 import Section from "../ui/Section.astro";
 import ArrowDown from "../icons/ArrowDown.astro";
 
@@ -42,27 +41,39 @@ const PROJECTS = [
     technologies: ["Vue.js", "Spring Boot", "Axios"],
     image: freewayImage,
   },
+  {
+    title: "...and this portfolio!",
+    description:
+      "An easy way of showing everyone who am I and what I'm capable of.\nI hope you liked it!",
+    link: "",
+    github: "https://github.com/RaulHinojosa24/portfolio",
+    technologies: ["Astro", "Tailwind CSS"],
+    image: "",
+  },
 ];
 ---
 
 <Section title="Projects" prev="#about" id="projects">
-  <ul class="flex flex-col gap-20 mt-10">
+  <ul class="flex flex-col gap-20">
     {
       PROJECTS.map(
         ({ title, description, link, github, technologies, image }) => (
-          <li class="flex flex-col gap-4 border-l-[16px] border-accent px-4 -ml-8">
+          <li class="flex flex-col gap-4 border-l-[16px] border-accent px-4 -ml-sm lg:-ml-lg pb-[0.2rem]">
             <div class="space-y-2">
-              <div class="flex justify-between">
-                {!link && <h4 class="font-bold">{title}</h4>}
-                {link && (
-                  <a class="w-fit" target="_blank" href={link}>
-                    <h4 class="flex gap-2 items-center text-inherit font-bold pb-1">
-                      {title}
-                      {link && <ExternalLink />}
-                    </h4>
+              <h4 class="font-bold pb-1 text-lg tracking-wide">
+                {link ? (
+                  <a
+                    class="flex gap-2 items-center"
+                    target="_blank"
+                    href={link}
+                  >
+                    {title}
+                    <ExternalLink />
                   </a>
+                ) : (
+                  title
                 )}
-              </div>
+              </h4>
               <p class="leading-snug">{description}</p>
               <ul class="flex gap-2 flex-wrap">
                 {technologies.map((tech) => (
@@ -84,7 +95,7 @@ const PROJECTS = [
                 id="github"
                 href={github}
                 target="_blank"
-                class="font-bold text-accent flex items-center"
+                class="font-bold text-accent flex items-center relative after:absolute after:bottom-0 after:left-0 after:transition-all after:w-0 after:border-accent focus:after:w-full focus:after:border-[1px] hover:after:w-full hover:after:border-[1px] active:after:w-full active:after:border-[1px]"
               >
                 GitHub repository <ArrowDown classes="rotate-90 mt-1" />
               </a>
@@ -99,6 +110,9 @@ const PROJECTS = [
 <style>
   h4,
   #github {
-    font-family: "Antonio";
+    font-family: "Antonio", system-ui, sans-serif;
+  }
+  p {
+    white-space: pre-line;
   }
 </style>
