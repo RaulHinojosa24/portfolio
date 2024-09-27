@@ -1,22 +1,26 @@
 ---
 import ArrowDown from "../icons/ArrowDown.astro";
 
-interface Props {
-  target: string;
-  isTop: boolean;
-}
-
-const { target, isTop } = Astro.props;
+const { target, isTop, classes } = Astro.props;
 ---
 
 <a
+  aria-hidden="true"
   aria-label=`Scroll ${isTop ? 'up' : 'down'} to ${target}`
   href={target}
   class:list={{
-    "top-12 left-1/2 -translate-x-1/2 rotate-180": isTop,
-    "bottom-12 left-1/2 -translate-x-1/2": !isTop,
+    "top-10 left-1/2 -translate-x-1/2 rotate-180": isTop,
+    "bottom-10 left-1/2 -translate-x-1/2": !isTop,
   }}
-  class="absolute"
+  class={`absolute p-2 ${classes || ""}`}
 >
   <ArrowDown />
 </a>
+
+<style>
+  a:hover,
+  a:active,
+  a:focus {
+    @apply transition-colors bg-accent/10;
+  }
+</style>
