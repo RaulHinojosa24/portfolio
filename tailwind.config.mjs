@@ -4,8 +4,16 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				accent: '#4c0cfc'
-			}
+				accent: '#27e' // 4c0cfc, 1d4ed8, 2563eb
+			},
+			padding: {
+				sm: "2rem",
+				lg: "4rem"
+			},
+			margin: {
+				sm: "2rem",
+				lg: "4rem"
+			},
 		},
 	},
 	plugins: [],
