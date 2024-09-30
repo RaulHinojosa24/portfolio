@@ -1,23 +1,22 @@
 ---
 import LinkedIn from "../icons/LinkedIn.astro";
 import GitHub from "../icons/GitHub.astro";
+import Link from "../ui/Link.astro";
 ---
 
 <div class="flex gap-2">
-  <a
+  <Link
     href="https://www.linkedin.com/in/raulhinojosaperez/"
-    target="_blank"
-    aria-label="Visit LinkedIn page"
-    class="text-4xl"
+    label="Visit LinkedIn page"
+    type="icon"
   >
     <LinkedIn />
-  </a>
-  <a
+  </Link>
+  <Link
     href="https://github.com/RaulHinojosa24"
-    target="_blank"
-    aria-label="Visit GitHub page"
-    class="text-4xl"
+    label="Visit GitHub page"
+    type="icon"
   >
     <GitHub />
-  </a>
+  </Link>
 </div>

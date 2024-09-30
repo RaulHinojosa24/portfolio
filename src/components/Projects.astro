@@ -2,9 +2,8 @@
 import { Image } from "astro:assets";
 import freewayImage from "../images/freeway.webp";
 import moviesandshowsImage from "../images/moviesandshows.webp";
-import ExternalLink from "../icons/ExternalLink.astro";
 import Section from "../ui/Section.astro";
-import ArrowDown from "../icons/ArrowDown.astro";
+import Link from "../ui/Link.astro";
 
 const PROJECTS = [
   {
@@ -62,14 +61,9 @@ const PROJECTS = [
             <div class="space-y-2">
               <h4 class="font-bold pb-1 text-lg tracking-wide">
                 {link ? (
-                  <a
-                    class="flex gap-2 items-center"
-                    target="_blank"
-                    href={link}
-                  >
+                  <Link href={link} type="title">
                     {title}
-                    <ExternalLink />
-                  </a>
+                  </Link>
                 ) : (
                   title
                 )}
@@ -91,14 +85,9 @@ const PROJECTS = [
               />
             )}
             {github && (
-              <a
-                id="github"
-                href={github}
-                target="_blank"
-                class="font-bold text-dark dark:text-light flex items-center relative after:absolute after:bottom-0 after:left-0 after:transition-all after:w-0 after:border-accent focus:after:w-full focus:after:border-[1px] hover:after:w-full hover:after:border-[1px] active:after:w-full active:after:border-[1px]"
-              >
-                GitHub repository <ArrowDown classes="rotate-90 mt-1" />
-              </a>
+              <Link href={github} type="underline">
+                GitHub repository
+              </Link>
             )}
           </li>
         ),
@@ -108,10 +97,6 @@ const PROJECTS = [
 </Section>
 
 <style>
-  h4,
-  #github {
-    font-family: "Antonio", system-ui, sans-serif;
-  }
   p {
     white-space: pre-line;
   }

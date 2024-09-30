@@ -1,0 +1,34 @@
+---
+import ArrowDown from "../icons/ArrowDown.astro";
+import ExternalLink from "../icons/ExternalLink.astro";
+import File from "../icons/File.astro";
+
+const { href, type, label } = Astro.props;
+
+const classes = {
+  underline:
+    "relative after:absolute after:bottom-0 after:left-0 after:transition-all after:w-0 after:border-accent focus:after:w-full focus:after:border-[1px] hover:after:w-full hover:after:border-[1px] active:after:w-full active:after:border-[1px] text-dark dark:text-light tracking-wide",
+  title: "gap-2",
+  icon: "text-4xl text-dark dark:text-light",
+  file: "tracking-wide dark:bg-light bg-dark px-4 py-1 dark:text-dark text-light gap-1 relative after:transition-all after:absolute after:right-0 after:top-0 after:dark:bg-dark after:bg-light after:aspect-square after:w-0 after:border-0 after:border-transparent after:border-b-dark/50 after:border-l-dark/50 after:dark:border-b-light/30 after:dark:border-l-light/30 hover:after:border-4 hover:after:w-[4px] focus:after:border-4 focus:after:w-[4px] active:after:border-4 active:after:w-[4px] after:shadow-sm after:shadow-light/50 dark:after:shadow-dark/50",
+};
+---
+
+<a
+  href={href}
+  aria-label={label}
+  target="_blank"
+  rel="noopener noreferrer"
+  class=`hover:text-accent focus:text-accent active:text-accent dark:hover:text-accent dark:focus:text-accent dark:active:text-accent transition-colors w-fit font-bold flex items-center group ${classes[type]}`
+>
+  <slot />
+  {type === "underline" && <ArrowDown classes="rotate-90 mt-1" />}
+  {type === "title" && <ExternalLink />}
+  {type === "file" && <File />}
+</a>
+
+<style>
+  a {
+    font-family: "Antonio", system-ui, sans-serif;
+  }
+</style>
