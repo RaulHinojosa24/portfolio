@@ -1,0 +1,44 @@
+---
+import Section from "../ui/Section.astro";
+
+const skills = {
+  frontend: [
+    "HTML5",
+    "CSS3 (Flexbox, Grid)",
+    "JavaScript (ES6+)",
+    "React.js",
+    "Vue.js",
+    "Tailwind",
+  ],
+  backend: ["Node.js", "SQL", "API REST", "Spring Boot"],
+  devTools: ["Git / GitHub", "CI/CD", "Webpack / Vite", "npm"],
+  others: [
+    "Scrum / Agile methodologies",
+    "UX/UI basics",
+    "SEO fundamentals",
+    // "Testing (Jest, Cypress, Mocha)",
+  ],
+};
+---
+
+<Section title="Skills" id="skills" prev="#about" next="#projects">
+  <ul class="grid gap-4 grid-cols-2 2xl:grid-cols-4">
+    {
+      Object.keys(skills).map((skill) => (
+        <li>
+          <h4 class="uppercase tracking-wide text-lg font-bold mb-1">
+            {skill}
+          </h4>
+          <ul class="list-['·_'] list-inside">
+            {skills[skill].map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+  <p class="text-xs mt-8">
+    ⬇ Check out my projects to see these skills in action ;) ⬇
+  </p>
+</Section>
