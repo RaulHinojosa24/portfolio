@@ -12,15 +12,7 @@ const { target, isTop, classes } = Astro.props;
     "top-10 left-1/2 -translate-x-1/2 rotate-180": isTop,
     "bottom-10 left-1/2 -translate-x-1/2": !isTop,
   }}
-  class={`absolute p-2 ${classes || ""}`}
+  class={`absolute p-2 bg-transparent transition-colors hover:bg-accent/10 hover:text-accent focus:bg-accent/10 focus:text-accent active:bg-accent/10 active:text-accent ${classes || ""}`}
 >
   <ArrowDown />
 </a>
-
-<style>
-  a:hover,
-  a:active,
-  a:focus {
-    @apply transition-colors bg-accent/10 text-accent;
-  }
-</style>
