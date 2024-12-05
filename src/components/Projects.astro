@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import freewayImage from "../images/freeway.webp";
 import moviesandshowsImage from "../images/moviesandshows.webp";
+import gameoflifeImage from "../images/gameoflife.gif";
 import Section from "../ui/Section.astro";
 import Link from "../ui/Link.astro";
 
@@ -32,13 +33,22 @@ const PROJECTS = [
     image: "",
   },
   {
-    title: "FreeWay - Travel planner",
+    title: "FreeWay - Travel Planner",
     description:
       "Travel planning app, developed by my partners and me as the final project of a bootcamp, covering both front-end and back-end.",
     link: "",
     github: "https://github.com/PlanificacionViaje",
     technologies: ["Vue.js", "Spring Boot", "Axios"],
     image: freewayImage,
+  },
+  {
+    title: "Conway's Game of Life",
+    description:
+      "Wanna play an amusing zero-player game? Create the first generation and watch it evolve!",
+    link: "https://conwaygol.vercel.app",
+    github: "https://github.com/RaulHinojosa24/game-of-life",
+    technologies: ["Vanilla JS", "P5.js"],
+    image: gameoflifeImage,
   },
   {
     title: "...and this portfolio!",
