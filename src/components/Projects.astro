@@ -1,12 +1,28 @@
 ---
-import { Image } from "astro:assets";
-import freewayImage from "../images/freeway.webp";
-import moviesandshowsImage from "../images/moviesandshows.webp";
-import gameoflifeImage from "../images/gameoflife.gif";
-import Section from "../ui/Section.astro";
-import Link from "../ui/Link.astro";
+import { Image } from "astro:assets"
+import freewayImage from "../images/freeway.webp"
+import moviesandshowsImage from "../images/moviesandshows.webp"
+import gameoflifeImage from "../images/gameoflife.gif"
+import owari from "../images/owari.webp"
+import Section from "../ui/Section.astro"
+import Link from "../ui/Link.astro"
 
 const PROJECTS = [
+  {
+    title: "Owari: Task Manager",
+    description: "Manage all your tasks efficiently, from anywhere.",
+    link: "https://owari.vercel.app/",
+    github: "https://github.com/RaulHinojosa24/todolist-next",
+    technologies: [
+      "Next.js",
+      "React",
+      "Auth.js",
+      "PostgreSQL",
+      "Tailwind CSS",
+      "TypeScript",
+    ],
+    image: owari,
+  },
   {
     title: "Movies & Shows",
     description:
@@ -59,7 +75,7 @@ const PROJECTS = [
     technologies: ["Astro", "Tailwind CSS"],
     image: "",
   },
-];
+]
 ---
 
 <Section title="Projects" prev="#skills" id="projects">
@@ -100,7 +116,7 @@ const PROJECTS = [
               </Link>
             )}
           </li>
-        ),
+        )
       )
     }
   </ul>
